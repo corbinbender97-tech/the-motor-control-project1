@@ -1,17 +1,17 @@
 import time
 from gpiozero import Motor, DigitalInputDevice, Button
 
-motor = Motor(up=17, down=18,)
+motor = Motor(forward=17, backward=18,)
 light_sensor =DigitalInputDevice(22)
 limit_switch = Button(23)
 
 def motor_start():
-    motor.up()
+    motor.forward()
 
 def motor_stop():
-    motor.down()
+    motor.backward()
 
-while true:
+while True:
     if light_sensor.is_active:
         print("Light sensor is active")
         if not limit_switch.is_pressed:
