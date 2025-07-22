@@ -12,6 +12,8 @@ def motor_stop():
     motor.backward()
 
 while True:
+    loop_count += 1
+    print(f"Loop coiunt: {loop_count}")
     if light_sensor.is_active:
         print("Light sensor is active")
         if not limit_switch.is_pressed:
@@ -19,9 +21,10 @@ while True:
             print("motor started")
         else:
             print("Limit switch is pressed Motor down")
-            motor_down()
+            motor_stop()
     else:
         print("Light sensor is not active, waiting...")
         time.sleep(1)
+
 
 
